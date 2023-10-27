@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -16,6 +17,8 @@ public class Message {
     private Long id;
     @ManyToOne
     private User usuario;
+
+    private LocalDateTime dateTIme;
 
     @ManyToOne
     private Team team;

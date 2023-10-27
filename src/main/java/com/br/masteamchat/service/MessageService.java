@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,7 +28,7 @@ public class MessageService {
         Team team = teamService.achaPorId(messageSendDTO.getTeamID());
 
         if(user != null && team != null){
-            Message message = new Message(null, user, team, messageSendDTO.getMessage());
+            Message message = new Message(null, user, LocalDateTime.now(), team, messageSendDTO.getMessage());
 
             return messageRepository.save(message);
         }
